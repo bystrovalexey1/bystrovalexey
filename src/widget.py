@@ -2,6 +2,7 @@ from masks import get_mask_card_number, get_mask_account
 
 
 def mask_account_card(card_or_account_info: str) -> str:
+    """ Функция, которая маскирует и номер карты, и номер счета """
     split_card_or_account_info = card_or_account_info.split(' ')
     hidden_account_or_card_number = ''
     if 'Счет' in split_card_or_account_info:
@@ -23,8 +24,15 @@ def mask_account_card(card_or_account_info: str) -> str:
     return hidden_account_or_card_number
 
 
-def get_date(date_of_release: str) -> str:
-    pass
+def get_date(date_and_time_of_release: str) -> str:
+    """Функция возвращает дату в формате ДД.ММ.ГГГГ"""
+    date_of_release = date_and_time_of_release[0:9]
+    year_month_day = date_of_release.split("-")
+    day_month_year = year_month_day[::-1]
+    formate_date_of_release = '.'.join(day_month_year)
+    return formate_date_of_release
 
 
-print(mask_account_card('MasterCard 7158300734726758'))
+
+print(mask_account_card('Visa Platinum 8990922113665229'))
+print(get_date('2024-03-11T02:26:18.671407'))
