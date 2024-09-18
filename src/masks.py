@@ -13,7 +13,8 @@ def get_mask_card_number(card_number: str) -> str:
         hidden_card_number[8:12],
         hidden_card_number[12:16],
     ]
-    return " ".join(blocks)
+    mask_card_number = " ".join(blocks)
+    return mask_card_number
 
 
 def get_mask_account(account_number: str) -> str:
