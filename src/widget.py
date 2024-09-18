@@ -31,8 +31,3 @@ def get_date(date_and_time_of_release: str) -> str:
     day_month_year = year_month_day[::-1]
     formate_date_of_release = '.'.join(day_month_year)
     return formate_date_of_release
-
-
-
-print(mask_account_card('Visa Platinum 8990922113665229'))
-print(get_date('2024-03-11T02:26:18.671407'))
