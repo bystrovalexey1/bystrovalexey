@@ -27,7 +27,7 @@ def mask_account_card(card_or_account_info: str) -> str:
 
 def get_date(date_and_time_of_release: str) -> str:
     """Функция возвращает дату в формате ДД.ММ.ГГГГ"""
-    if type(date_and_time_of_release) != str:
+    if type(date_and_time_of_release) is str:
         return "Некорректный ввод"
     elif len(date_and_time_of_release) == 26 and date_and_time_of_release[4] == "-" and date_and_time_of_release[7] == "-" and date_and_time_of_release[-7] == ".":
         date_of_release = date_and_time_of_release[0:10]

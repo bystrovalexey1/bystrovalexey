@@ -18,6 +18,7 @@ def get_mask_card_number(card_number: str) -> str:
         return mask_card_number
     return 'Некорректный ввод'
 
+
 def get_mask_account(account_number: str) -> str:
     """Маскирует номер счета в формате **ХХХХ"""
     hidden_account_number = account_number[-6:]
