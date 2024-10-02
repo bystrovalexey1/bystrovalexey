@@ -5,7 +5,9 @@ def filter_by_state(personal_info: list[dict[str, Any]], state_id: str = "EXECUT
     """Функция которая фильтрует данные по параметру state"""
     personal_info_filter_by_state = []
     for person_info in personal_info:
-        if person_info["state"] == state_id:
+        if 'state' not in person_info:
+            continue
+        elif person_info["state"] == state_id:
             personal_info_filter_by_state.append(person_info)
     return personal_info_filter_by_state
 
