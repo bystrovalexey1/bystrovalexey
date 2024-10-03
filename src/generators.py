@@ -1,7 +1,7 @@
 from typing import Iterator, List
 
 
-def filter_by_currency(transaction_list: List[dict], currency_name: str) -> Iterator:
+def filter_by_currency(transaction_list: List[dict], currency_name: str = 'USD') -> Iterator:
     for transaction in transaction_list:
         if transaction['operationAmount']['currency']['name'] == currency_name:
             yield transaction
