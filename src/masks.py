@@ -16,7 +16,7 @@ def get_mask_card_number(card_number: str) -> str:
         ]
         mask_card_number = " ".join(blocks)
         return mask_card_number
-    return 'Некорректный ввод'
+    return "Некорректный ввод"
 
 
 def get_mask_account(account_number: str) -> str:
@@ -30,4 +30,4 @@ def get_mask_account(account_number: str) -> str:
             else:
                 mask_account_number += value
         return mask_account_number
-    return 'Некорректный ввод'
+    return "Некорректный ввод"

@@ -1,5 +1,6 @@
 import pytest
-from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
+
+from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 
 
 @pytest.fixture
@@ -177,12 +178,12 @@ def usd_transaction():
 
 
 def test_filter_by_currency(transaction_list: list[dict], usd_transaction: list[dict]) -> None:
-    """ Проверка фильтрации списка по ключу валюты """
+    """Проверка фильтрации списка по ключу валюты"""
     assert list(filter_by_currency(transaction_list, "USD")) == usd_transaction
 
 
 def test_filter_by_currency_empty_or_noone(transaction_list_without_usd: list[dict]) -> None:
-    """ Проверка выдачи пустого списка, если нет операций в заданной валюте или пустого списка """
+    """Проверка выдачи пустого списка, если нет операций в заданной валюте или пустого списка"""
     assert list(filter_by_currency(transaction_list_without_usd)) == []
     assert list(filter_by_currency([])) == []
 
@@ -197,7 +198,7 @@ def test_transaction_descriptions(transaction_list: list[dict]) -> None:
 
 
 def test_transaction_descriptions_empty() -> None:
-    """ Функция тестирует вывод при пустом списке """
+    """Функция тестирует вывод при пустом списке"""
     descriptions = transaction_descriptions([])
     assert list(descriptions) == []
 
