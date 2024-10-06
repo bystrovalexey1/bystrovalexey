@@ -16,9 +16,11 @@ def log(filename: Any) -> Callable:
                 print(log_message)
             except Exception as e:
                 error_message = f"{func.__name__} error: {e}. Inputs:{args}, {kwargs}"
-                with open(filename, "a") as f:
-                    f.write(error_message + "\n")
-                print(error_message)
+                if filename:
+                    with open(filename, "a") as f:
+                        f.write(error_message + "\n")
+                else:
+                    print(error_message)
 
         return wrapper
 
@@ -30,4 +32,4 @@ def my_function(x: int, y: int) -> int:
     return x + y
 
 
-my_function(1, 2.4)
+my_function(1, 5)
