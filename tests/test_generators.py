@@ -4,7 +4,8 @@ from src.generators import card_number_generator, filter_by_currency, transactio
 
 
 @pytest.fixture
-def transaction_list():
+def transaction_list() -> list[dict]:
+    """Фикстура списка транзаций"""
     return [
         {
             "id": 939719570,
@@ -70,7 +71,8 @@ def transaction_list():
 
 
 @pytest.fixture
-def transaction_list_without_usd():
+def transaction_list_without_usd() -> list[dict]:
+    """Фикстура списка, где нет валюты USD"""
     return [
         {
             "id": 939719570,
@@ -136,7 +138,8 @@ def transaction_list_without_usd():
 
 
 @pytest.fixture
-def usd_transaction():
+def usd_transaction() -> list[dict]:
+    """Фикстура списка, для сортировки списка транзакций по валюте USD"""
     return [
         {
             "id": 939719570,
