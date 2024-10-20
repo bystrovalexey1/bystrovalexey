@@ -1,4 +1,3 @@
-from utils import file_opening
 from dotenv import load_dotenv
 import requests
 import os
