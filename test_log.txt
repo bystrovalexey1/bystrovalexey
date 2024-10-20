@@ -1,0 +1,2 @@
+my_function called with args: (5, 4), kwargs:{}. Result: 9
+my_function called with args: (0, 2), kwargs:{}. Result: 2
