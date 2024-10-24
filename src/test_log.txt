@@ -1,0 +1,7 @@
+my_function error: unsupported operand type(s) for +: 'int' and 'str'. Inputs:(1, 't'), {}
+my_function called with args: (1, 2), kwargs:{}. Result: 3
+my_function called with args: (1, 87), kwargs:{}. Result: 88
+my_function error: my_function() missing 1 required positional argument: 'y'. Inputs:(1,), {}
+my_function error: unsupported operand type(s) for +: 'int' and 'str'. Inputs:(1, ''), {}
+my_function called with args: (1, 2.4), kwargs:{}. Result: 3.4
+my_function called with args: (1, 5), kwargs:{}. Result: 6
