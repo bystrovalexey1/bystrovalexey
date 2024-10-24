@@ -1,3 +1,9 @@
+import logging
+
+
+
+
+
 def get_mask_card_number(card_number: str) -> str:
     """Маскирует номер карты в формате ХХХХ ХХ** **** ХХХХ"""
     hidden_chars = [6, 7, 8, 9, 10, 11]
