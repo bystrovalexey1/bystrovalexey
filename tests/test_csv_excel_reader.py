@@ -40,4 +40,3 @@ def test_get_data_from_excel(mock_read_excel: Any, mock_file: Any) -> None:
 def test_not_found_excel(mock_file: Any) -> None:
     transactions = transaction_read_xlcx("data/transactions.xlsx")
     assert transactions == []
-
