@@ -29,18 +29,8 @@ def mask_account_card(card_or_account_info: str) -> str:
 
 def get_date(date_and_time_of_release: str) -> str:
     """Функция возвращает дату в формате ДД.ММ.ГГГГ"""
-    if (
-        len(date_and_time_of_release) == 26
-        and date_and_time_of_release[4] == "-"
-        and date_and_time_of_release[7] == "-"
-        and date_and_time_of_release[-7] == "."
-    ):
-        date_of_release = date_and_time_of_release[0:10]
-        year_month_day = date_of_release.split("-")
-        day_month_year = year_month_day[::-1]
-        formate_date_of_release = ".".join(day_month_year)
-        return formate_date_of_release
-    return "Некорректный ввод"
+    formate_date_of_release = date_and_time_of_release[0:10].split("-")
+    return ".".join(formate_date_of_release[::-1])
 
 
 print(get_date("2024-03-11T02:26:18.671407"))

@@ -1,12 +1,16 @@
 from typing import Generator, Iterator, List
 
 
-def filter_by_currency(transaction_list: List[dict], currency_name: str = "USD") -> Iterator:
+def filter_by_currency(transaction_list: List[dict], currency_code: str = "USD") -> Iterator:
     """Функция для фильтрации списка операций по валюте"""
-    for transaction in transaction_list:
-        if transaction["operationAmount"]["currency"]["name"] == currency_name:
-            yield transaction
-
+    try:
+        for transaction in transaction_list:
+            if transaction["operationAmount"]["currency"]["code"] == currency_code:
+                yield transaction
+    except KeyError:
+        for transaction in transaction_list:
+            if transaction["currency_code"] == currency_code:
+                yield transaction
 
 def transaction_descriptions(transaction_list: List[dict]) -> Iterator:
     """Функция для последовательного вывода описания банковских операций"""

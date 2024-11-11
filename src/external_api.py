@@ -8,7 +8,7 @@ API_KEY = os.getenv("API_KEY")
 
 
 def get_amount(transaction: dict) -> float:
-    """ Функция, которая выводить сумму операции в рублях, если валюта другая, то конвертирует через api """
+    """Функция, которая выводить сумму операции в рублях, если валюта другая, то конвертирует через api"""
     amount = transaction["operationAmount"]["amount"]
     currency = transaction["operationAmount"]["currency"]["code"]
     if currency == "RUB":
