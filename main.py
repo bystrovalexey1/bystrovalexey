@@ -94,7 +94,7 @@ def rub_account(filter_transaction_list: list[dict]) -> list[dict]:
         user_choice = input()
         if user_choice.lower() == "да":
             filter_transaction_list = filter_by_currency(filter_transaction_list, "RUB")
-            return filter_transaction_list
+            return list(filter_transaction_list)
             break
         elif user_choice.lower() == "нет":
             return filter_transaction_list
@@ -128,12 +128,13 @@ def final_res(filter_transaction_list: list[dict]) -> None:
     else:
         print(f"Всего банковских операций в выборке: {len(filter_transaction_list)}")
         for transaction in filter_transaction_list:
+            description = transaction.get("description")
             date = get_date(transaction.get("date"))
             try:
                 mask_from = mask_account_card(transaction["from"])
-                print(f"{date} {transaction} {mask_from} -> ", end="")
+                print(f"{date} {description} {mask_from} -> ", end="")
             except KeyError:
-                print(f"{date} {transaction} ", end="")
+                print(f"{date} ", end="")
 
             try:
                 mask_to = mask_account_card(transaction["to"])
@@ -151,10 +152,9 @@ def main() -> None:
     """Возвращает список транзакций по выбранным условиям"""
     transaction_list = hello()
     filter_transaction_list = operation_choice(transaction_list)
-    date_filter(filter_transaction_list)
-    rub_account(filter_transaction_list)
-    sort_by_subs(filter_transaction_list)
-    print(filter_transaction_list)
+    filter_transaction_list = date_filter(filter_transaction_list)
+    filter_transaction_list = rub_account(filter_transaction_list)
+    filter_transaction_list = sort_by_subs(filter_transaction_list)
     final_res(filter_transaction_list)
 
 
